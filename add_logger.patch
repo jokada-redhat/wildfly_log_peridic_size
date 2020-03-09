@@ -1,0 +1,26 @@
+--- standalone.xml	2017-10-24 12:30:38.000000000 +0900
++++ standalone_2.xml	2020-03-09 13:38:02.000000000 +0900
+@@ -102,6 +102,15 @@
+                 <suffix value=".yyyy-MM-dd"/>
+                 <append value="true"/>
+             </periodic-rotating-file-handler>
++            <periodic-size-rotating-file-handler name="FILE2" autoflush="true" rotate-on-boot="true">
++                <formatter>
++                    <named-formatter name="PATTERN"/>
++                </formatter>
++                <file relative-to="jboss.server.log.dir" path="periodic.log"/>
++                <rotate-size value="1024"/>
++                <suffix value=".yyyy-MM-dd-HHmm"/>
++                <append value="true"/>
++            </periodic-size-rotating-file-handler>
+             <logger category="com.arjuna">
+                 <level name="WARN"/>
+             </logger>
+@@ -116,6 +125,7 @@
+                 <handlers>
+                     <handler name="CONSOLE"/>
+                     <handler name="FILE"/>
++                    <handler name="FILE2"/>
+                 </handlers>
+             </root-logger>
+             <formatter name="PATTERN">

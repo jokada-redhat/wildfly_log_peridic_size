@@ -1,0 +1,10 @@
+version: "3"
+services:
+  widlfly:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - ./log:/opt/jboss/wildfly/standalone/log:Z
+    ports:
+    - 38080:8080
